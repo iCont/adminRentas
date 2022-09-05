@@ -15,6 +15,8 @@ return new class extends Migration
     {
         Schema::create('cat_apartments', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->float('precio_renta');
             $table->timestamps();
         });
     }

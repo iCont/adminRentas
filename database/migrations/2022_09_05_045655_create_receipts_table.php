@@ -18,7 +18,7 @@ return new class extends Migration
             $table->timestamp('date_payment');
             $table->string('month_covered');
             $table->string('folio');
-            $table->string('amount_charged');
+            $table->float('amount_charged');
             $table->unsignedBigInteger('id_status_payment');
             $table->unsignedBigInteger('id_concept_payment');
             $table->timestamps();

@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('cat_late_charges', function (Blueprint $table) {
             $table->id();
+            $table->float('percentage');
             $table->timestamps();
         });
     }
