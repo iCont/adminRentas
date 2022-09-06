@@ -6,7 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class CatStatusRenterSeeder extends Seeder
+class CatLateChargesSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -16,10 +16,8 @@ class CatStatusRenterSeeder extends Seeder
     public function run()
     {
         $data=[
-         ['name'=>'Activo'],
-         ['name'=>'Activo Moroso'],
-         ['name'=>'Inactivo']
+          ['percentage'=>10]
         ];
-        DB::table('cat_status_renters')->insert($data);
+        DB::table('cat_late_charges')->insert($data);
     }
 }

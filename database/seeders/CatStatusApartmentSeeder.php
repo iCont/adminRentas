@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class CatStatusApartmentSeeder extends Seeder
 {
@@ -14,6 +15,11 @@ class CatStatusApartmentSeeder extends Seeder
      */
     public function run()
     {
-        //
+        $data = [
+            ['name'=>'Disponible'],
+            ['name'=>'Ocupado'],
+            ['name'=>'Reparación']
+        ];
+        DB::table('cat_status_apartments')->insert($data);
     }
 }

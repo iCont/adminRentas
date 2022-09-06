@@ -21,6 +21,9 @@ return new class extends Migration
             $table->unsignedBigInteger('id_status_payment');
             $table->unsignedBigInteger('id_concept_payment');
             $table->timestamps();
+
+            $table->foreign('id_status_payment')->references('id')->on('cat_status_payments');
+            $table->foreign('id_concept_payment')->references('id')->on('cat_concept_payments');
         });
     }
 

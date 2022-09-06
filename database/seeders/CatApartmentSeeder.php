@@ -16,17 +16,51 @@ class CatApartmentSeeder extends Seeder
     public function run()
     {
         $data=[
-          ['name'=>1],
-          ['name'=>2],
-          ['name'=>3],
-          ['name'=>4],
-          ['name'=>5],
-          ['name'=>6],
-          ['name'=>7],
-          ['name'=>8],
-          ['name'=>9],
-          ['name'=>10],
-        ];
+          ['name'=>1,
+          'precio_renta'=>1000,
+        ],
+          [
+            'name'=>2,
+            'precio_renta'=>1000,
+        ],
+          [
+            'name'=>3,
+            'precio_renta'=>1000,
+        ],
+          [
+            'name'=>4,
+            'precio_renta'=>1000,
+        ],
+          [
+            'name'=>5,
+            'precio_renta'=>1000,
+
+        ],
+          [
+            'name'=>6,
+            'precio_renta'=>1000,
+        ],
+          [
+            'name'=>7,
+            'precio_renta'=>1000,
+
+        ],
+          [
+            'name'=>8,
+            'precio_renta'=>1000,
+
+        ],
+          [
+            'name'=>9,
+            'precio_renta'=>1000,
+
+        ],
+          [
+          'name'=>10,
+          'precio_renta'=>1000,
+
+        ],
+    ];
         DB::table('cat_apartments')->insert($data);
     }
 }

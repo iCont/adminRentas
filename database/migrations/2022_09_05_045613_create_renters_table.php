@@ -26,6 +26,7 @@ return new class extends Migration
             $table->timestamps();
 
             $table->foreign('id_apartment')->references('id')->on('cat_apartments');
+            $table->foreign('id_status_renter')->references('id')->on('cat_status_renters');
         });
     }
 
