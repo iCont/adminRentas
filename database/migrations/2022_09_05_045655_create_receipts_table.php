@@ -15,7 +15,6 @@ return new class extends Migration
     {
         Schema::create('receipts', function (Blueprint $table) {
             $table->id();
-            $table->timestamp('date_payment');
             $table->string('month_covered');
             $table->string('folio');
             $table->float('amount_charged');

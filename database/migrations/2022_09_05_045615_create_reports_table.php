@@ -18,8 +18,6 @@ return new class extends Migration
             $table->unsignedBigInteger('id_renter');
             $table->unsignedBigInteger('id_status_report');
             $table->text('comments');
-            $table->timestamps('date_report');
-            $table->timestamps('date_solution');
             $table->timestamps();
         });
     }
