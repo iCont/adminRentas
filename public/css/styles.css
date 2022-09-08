@@ -40,13 +40,51 @@ body {
     color: var(--primary-blue);
     font-weight: bolder;
 }
+/* elementos */
+a{
+    text-decoration: none;
+}
 
+.icons{
+    margin-top: 4px;
+    font-size: 1.2rem;
+}
+
+.buttons_container{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.btn_a{
+    color: var(--primary-blue);
+}
+
+.btn{
+    width: 20px;
+    height: 20px;
+    background-color: transparent;
+    border: none;
+    font-size: 1.1rem;
+}
+
+.icon_trash{
+    margin-top: 2px;
+}
+
+.btn-danger{
+    color: var(--light-orange);
+}
+.btn-primery{
+    color:var(--primary-blue);
+}
+/* elementos */
 /* table */
 .table_wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
-    /* width: 500px; */
+    margin-bottom: 15px;
 }
 
 table{

@@ -20,9 +20,19 @@
                         <tr>
                             <td class="txt_enfasis">{{ $renter->id }}</td>
                             <td>{{ $renter->name }} {{ $renter->app }} {{ $renter->apm }}</td>
-                            <td>{{ $renter->id_apartment }}</td>
-                            <td>{{ $renter->id_status_renter }}</td>
-                            <td>Eliminar</td>
+                            <td>{{ $renter->apartment->name }}</td>
+                            <td>{{ $renter->status_renter->name }}</td>
+                            <td>
+                                <div class="buttons_container">
+                                    <a class="btn btn_a" href="" ><i class="fas fa-edit icons"></i></a>
+                                    <form action="{{route('renters.destroy',$renter)}}" method="POST">
+                                        @method('DELETE')
+                                        @csrf
+                                        <button class="btn btn-danger" type="submit"><i
+                                            class="fas fa-trash icon_trash"></i></button>
+                                    </form>
+                                </div>
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>

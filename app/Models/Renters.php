@@ -19,4 +19,13 @@ class Renters extends Model
         'id_status_renter',
         'email'
     ];
+
+    public function apartment(){
+        // un inquilino habita un departamento
+        return $this->belongsTo(CatApartments::class,"id_apartment");
+    }
+
+    public function status_renter(){
+        return $this->belongsTo(CatStatusRenters::class,"id_status_renter");
+    }
 }
