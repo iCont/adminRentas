@@ -32,7 +32,7 @@
     <div class="modal modal_no-visible" id="modal_windows">
         <div class="modal-dialog">
             <header class="modal-header">
-                <span class="modal-header__txt">Nuevo Inquilino</span>
+                <span class="modal-header__txt">NUEVO INQUILINO</span>
                 <button class="close-modal" id="close_modal">✕</button>
             </header>
             <section class="modal-content">
@@ -41,14 +41,6 @@
                         <div class="form-control">
                             <label class="label-projects" for="name">Nombre</label>
                             <input class="fields" name="name" type="text" placeholder="ingresa un nombre">
-                        </div>
-                        <div class="form-control">
-                            <label class="label-projects" for="app">Primer Apellido</label>
-                            <input class="fields" name="app" type="text" placeholder="ingresa primer apellido">
-                        </div>
-                        <div class="form-control">
-                            <label class="label-projects" for="apm">Segundo Apellido</label>
-                            <input class="fields" name="apm" type="text" placeholder="ingresa segundo apellido">
                         </div>
                     </form>
                 </div>
