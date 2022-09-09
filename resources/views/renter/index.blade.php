@@ -3,7 +3,7 @@
     <div class="content_int">
         <div class="txt_cont">
             <h1 class="h1_text">Administración de Departamentos</h1>
-            <button class="btn-primary" href="" >Nuevo Inquilino</button>
+            <button class="btn-primary" data-open="modal_windows" >Nuevo Inquilino</button>
         </div>
         <div class="table_wrapper">
             <table class="">
