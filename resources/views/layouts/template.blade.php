@@ -17,7 +17,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="{{ URL::asset('css/styles.css') }}">
-    <title>Sistema de Adinistración de Rentas</title>
+    <title>Sistema de Adimistración de Rentas</title>
 </head>
 
 <body>

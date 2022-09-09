@@ -18,17 +18,17 @@ html {
     font-size: 62.5%;
     font-family: 'Roboto', sans-serif;
     color: var(--white);
-
 }
 
 body {
     background-color: var(--dark-blue);
+    font-size: 1.8rem;
 }
 
 .wrapper {
     display: grid;
     grid-template-columns: 100%;
-    grid-template-rows: 50px 1fr 100px;
+    grid-template-rows: 100px 1fr 100px;
     grid-template-areas:
         "header"
         "cont"
@@ -47,7 +47,12 @@ a{
 
 .icons{
     margin-top: 4px;
-    font-size: 1.2rem;
+    font-size: 1.6rem;
+}
+
+.icon_trash{
+    margin-top: 5px;
+    margin-left: 4px;
 }
 
 .buttons_container{
@@ -68,13 +73,21 @@ a{
     font-size: 1.1rem;
 }
 
-.icon_trash{
-    margin-top: 2px;
+.btn-primary{
+    background-color: var(--primary-blue);
+    color: white;
+    font-size: 1.6rem;
+    font-weight: 700;
+    width: 150px;
+    height: 60px;
+    margin-top: 5px;
+    border-radius: 15px;
 }
 
 .btn-danger{
     color: var(--light-orange);
 }
+
 .btn-primery{
     color:var(--primary-blue);
 }
@@ -89,9 +102,9 @@ a{
 
 table{
     border-collapse:collapse;
-    border-radius: 1em;
+    border-radius: 1rem;
     overflow: hidden;
-    overflow: hidden;
+    margin-top: 30px;
 }
 
 th,
@@ -111,9 +124,14 @@ th{
     opacity: 0.1;
 }
 
-
 .borders {
     border: 1px var(--light-orange) solid;
+}
+
+nav{
+    background-color: var(--white);
+    opacity:0.1;
+    margin-bottom: 10px;
 }
 
 .header {
@@ -125,11 +143,21 @@ th{
 }
 
 .txt_cont {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    margin-top: 25px;
     text-align: center;
 }
 
+.h1_text{
+    margin-top: 20px;
+    margin-right: 30px;
+}
+
 h1 {
-    font-size: 1.8rem;
+    font-size: 2rem;
+    font-weight: bold;
     margin-bottom: 10px;
     color: var(--primary-blue);
 }

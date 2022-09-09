@@ -2,7 +2,8 @@
 @section('content')
     <div class="content_int">
         <div class="txt_cont">
-            <h1>Administración de Departamentos</h1>
+            <h1 class="h1_text">Administración de Departamentos</h1>
+            <button class="btn-primary" href="" >Nuevo Inquilino</button>
         </div>
         <div class="table_wrapper">
             <table class="">
@@ -29,7 +30,7 @@
                                         @method('DELETE')
                                         @csrf
                                         <button class="btn btn-danger" type="submit"><i
-                                            class="fas fa-trash icon_trash"></i></button>
+                                            class="fas fa-trash icons icon_trash"></i></button>
                                     </form>
                                 </div>
                             </td>
