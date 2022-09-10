@@ -38,14 +38,24 @@
             <section class="modal-content">
                 <div class="modal-content__form">
                     <form class="form-content" action="">
-                        <div class="form-control">
-                            <label class="label-projects" for="name">Nombre</label>
-                            <input class="fields" name="name" type="text" placeholder="ingresa un nombre">
-                        </div>
+                        <input type="text" name="name" class="" placeholder="NOMBRE">
+                        <br/>
+                        <input type="text" name="app" class="" placeholder="AP PATERNO">
+                        <br/>
+                        <input type="text" name="apm" class="" placeholder="AP MATERNO">
+                        <br/>
+                        <input type="email" name="mail" class="" placeholder="EMAIL">
+                        <br/>
+                        <select name="" id=""></select>
+                        <br/>
+                        <select name="" id=""></select>
                     </form>
                 </div>
             </section>
-            <footer class="modal-footer">...</footer>
+            <footer class="modal-footer">
+                <button class="btn_danger">Cancelar</button>
+                <button class="btn_primary">Guardar</button>
+            </footer>
         </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
