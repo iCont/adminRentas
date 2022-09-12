@@ -20,7 +20,7 @@ class Renters extends Model
         'email'
     ];
 
-    public function apartment(){
+    public function apartments(){
         // un inquilino habita un departamento
         return $this->belongsTo(CatApartments::class,"id_apartment");
     }

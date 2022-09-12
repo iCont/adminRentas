@@ -21,7 +21,7 @@
                         <tr>
                             <td class="txt_enfasis">{{ $renter->id }}</td>
                             <td>{{ $renter->name }} {{ $renter->app }} {{ $renter->apm }}</td>
-                            <td>{{ $renter->apartment->name }}</td>
+                            <td>{{ $renter->apartments->name }}</td>
                             <td>{{ $renter->status_renter->name }}</td>
                             <td>
                                 <div class="buttons_container">
@@ -29,7 +29,7 @@
                                     <form action="{{route('renters.destroy',$renter)}}" method="POST">
                                         @method('DELETE')
                                         @csrf
-                                        <button class="btn btn-danger" type="submit"><i
+                                        <button class="btn icon_trash" type="submit"><i
                                             class="fas fa-trash icons icon_trash"></i></button>
                                     </form>
                                 </div>
@@ -40,4 +40,10 @@
             </table>
         </div>
     </div>
+    @if (Session::has('success'))
+    <script>
+       alert('registro realizado');
+    </script>
+@else
+@endif
 @endsection

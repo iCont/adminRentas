@@ -36,8 +36,16 @@
                 <button class="close-modal" id="close_modal">✕</button>
             </header>
             <section class="modal-content">
+                <div class="modal-alerts">
+                    @if ($errors->all())
+                        <div class="modal-alert__wrapper">
+                            -{{$rror}}<br>
+                        </div>
+                    @endif
+                </div>
                 <div class="modal-content__form">
-                    <form class="form-content" action="">
+                    <form class="form-content" action="{{route('renters.store')}}" method="POST">
+                        @csrf
                         <input type="text" name="name" class="" placeholder="NOMBRE">
                         <br/>
                         <input type="text" name="app" class="" placeholder="AP PATERNO">
@@ -46,16 +54,31 @@
                         <br/>
                         <input type="email" name="mail" class="" placeholder="EMAIL">
                         <br/>
-                        <select name="" id=""></select>
+                        <select name="id_apartment">
+                            <option value="">Selecciona un número de departamento</option>
+                            {{-- {{$apartments}} --}}
+                            @foreach ($apartments as $apartment)
+                                <option value="{{$apartment->id}}"{{old('name')==$apartment->id ? "selected":""}}>{{$apartment->name}}</option>
+                            @endforeach
+                        </select>
                         <br/>
-                        <select name="" id=""></select>
-                    </form>
-                </div>
-            </section>
-            <footer class="modal-footer">
-                <button class="btn_danger">Cancelar</button>
-                <button class="btn_primary">Guardar</button>
-            </footer>
+                        <select name="id_status_renters">
+                            <option value="">Selecciona un estado de inquilino</option>
+                            {{-- {{$apartments}} --}}
+                            @foreach ($status_renters as $status_renter)
+                                <option value="{{$status_renter->id}}"{{old('name')==$status_renter->id ? "selected":""}}>{{$status_renter->name}}</option>
+                            @endforeach
+                        </select>
+                        <br/>
+                        <label class="arrival_date_label" for="arrival_date">Fecha en que se ocupará el departamento</label>
+                        <input type="date" name="arrival_date" class="arrival_date_input">
+                    </div>
+                </section>
+                <footer class="modal-footer">
+                    <button class="btn_danger">Cancelar</button>
+                    <button type="submit" class="btn_primary">Guardar</button>
+                </footer>
+            </form>
         </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
