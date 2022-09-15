@@ -7,6 +7,8 @@
     --light-blue: #08497a;
     --dark-orange: #db9973;
     --light-orange: #ca6262;
+    --light-green: #44a29d;
+    --dark-green: #1e424c;
     --bounceEasing: cubic-bezier(0.51, 0.92, 0.24, 1.15);
 }
 
@@ -65,7 +67,7 @@ a {
 }
 
 .icon_trash {
-    margin-top: 2px;
+    margin-top: 1px;
     margin-left: 4px;
     color: var(--light-orange);
 }
@@ -86,6 +88,7 @@ a {
     background-color: transparent;
     border: none;
     font-size: 1.1rem;
+    cursor: pointer;
 }
 
 .btn-primary {
@@ -96,7 +99,7 @@ a {
     width: 150px;
     height: 60px;
     margin-top: 5px;
-    border-radius: 15px;
+    border-radius: 10px;
     cursor: pointer;
 }
 
@@ -108,6 +111,7 @@ a {
     font-size: 1.8rem;
     border-radius: 10px;
     margin-right: 3px;
+    cursor: pointer;
 }
 
 .btn_primary {
@@ -117,10 +121,30 @@ a {
     font-weight: bold;
     font-size: 1.8rem;
     border-radius: 10px;
-
+    cursor: pointer;
 }
 
-.modal {
+.alert-success{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.alert-success_wrapper{
+    background-color: var(--dark-green);
+    width: 600px;
+    height: 80px;
+    border-radius: 20px;
+    border: 2px var(--light-green) solid;
+    margin-top: 20px;
+    color: var(--white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility:hidden;
+}
+
+.modal, .modal_edit {
     position: fixed;
     top: 0;
     left: 0;
@@ -198,6 +222,21 @@ a {
     font-weight: bold;
     margin-left: 250px;
 }
+.modal-alert-header__txt{
+    font-size: 3rem;
+    font-weight: bold;
+    margin-left: 348px;
+}
+
+.modal-content_wrap{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction:column;
+}
+.modal-buttons__content{
+    width: 60%;
+}
 
 .close-modal{
     color: var(--white);
@@ -266,9 +305,15 @@ th {
 }
 
 nav {
-    background-color: var(--white);
-    opacity: 0.1;
+    background-color: var(--dark-blue-secondary);
     margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+#logo{
+    width: 300px;
+    margin-left: 15%;
 }
 
 .header {

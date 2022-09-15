@@ -33,5 +33,10 @@ class RenterController extends Controller
 
     public function edit(){}
     public function update(){}
-    public function destroy(){}
+
+    public function destroy(Renters $renter){
+        $renter ->delete();
+        // dd($renter);
+        return back()->with('delete_renter','ok');
+    }
 }
