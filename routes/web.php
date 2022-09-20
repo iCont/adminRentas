@@ -24,6 +24,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/renters',[RenterController::class, 'index'])->name('renters.index');
 Route::post('/renters',[RenterController::class,'store'])->name('renters.store');
-Route::put('/renters/{renter}/edit',[RenterController::class,'update'])->name('renters.update');
+Route::put('/renters/{renter}',[RenterController::class,'update'])->name('renters.update');
 Route::delete('/renters/{renter}',[RenterController::class, 'destroy'])->name('renters.destroy');
+Route::get('/renters/{renter}/show',[RenterController::class,'show'])->name('renters.show');
 

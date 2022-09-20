@@ -23,16 +23,16 @@
                 </thead>
                 <tbody>
                     @foreach ($renters as $renter)
-                    {{-- @dd($renter) --}}
                         <tr>
                             <td class="txt_enfasis">{{ $renter->id }}</td>
-                            <td>{{ $renter->name }} {{ $renter->app }} {{ $renter->apm }}</td>
+                            <td><a class="rentersLink" href="{{ route('renters.show', $renter) }}">{{ $renter->name }}
+                                    {{ $renter->app }} {{ $renter->apm }}</a></td>
                             <td>{{ $renter->apartments->name }}</td>
                             <td>{{ $renter->status_renter->name }}</td>
                             <td>
                                 <div class="buttons_container">
                                     <button class="btn btn_a" id="edit_button" type="button"
-                                    onclick="launchModal_edit({{$renter->id}})"><i
+                                        onclick="launchModal_edit({{ $renter->id }})"><i
                                             class="fas fa-edit icons"></i></button>
                                     <button class="btn icon_trash" type="button"
                                         onclick="delete_renter({{ $renter->id }})"><i
@@ -45,7 +45,8 @@
                                 <div class="modal-dialog">
                                     <header class="modal-header">
                                         <span class="modal-alert-header__txt">ALERTA</span>
-                                        <button class="close-modal close_modalAlert" onclick="closeModalAlert({{ $renter->id }})">✕</button>
+                                        <button class="close-modal close_modalAlert"
+                                            onclick="closeModalAlert({{ $renter->id }})">✕</button>
                                     </header>
                                     <section class="modal-content">
                                         <div class="modal-content_wrap ">
@@ -67,7 +68,7 @@
                         </tr>
                         {{-- modal --}}
                         {{-- modal-edit --}}
-                        <div class="modal_edit modal_no-visible" id="modal_windows_edit{{$renter->id}}">
+                        <div class="modal_edit modal_no-visible" id="modal_windows_edit{{ $renter->id }}">
                             <div class="modal-dialog">
                                 <header class="modal-header">
                                     <span class="modal-header__txt">EDITAR INQUILINO</span>
@@ -75,50 +76,67 @@
                                 </header>
                                 <section class="modal-content">
                                     <div class="modal-alerts">
-                                        @if ($errors->all())
-                                            <div class="modal-alert__wrapper">
-                                                -{{ $rror }}<br>
+                                        @if ($errors->any())
+                                        <div class="modal-alert__wrapper">
+                                                @foreach ($errors->all() as $error)
+                                                    -{{ $error }}<br>
+                                                @endforeach
                                             </div>
                                         @endif
                                     </div>
                                     <div class="modal-content__form">
-                                        <form class="form-content" action="{{ route('renters.store') }}" method="POST">
+                                        <form class="form-content" action="{{ route('renters.update', $renter) }}"
+                                            method="POST">
+                                            @method('PUT')
                                             @csrf
-                                            <input type="text" name="name" class="" value="{{old('name',$renter->name)}}" placeholder="NOMBRE">
+                                            <input type="text" name="name" class=""
+                                                value="{{ old('name', $renter->name) }}" placeholder="NOMBRE">
                                             <br />
-                                            <input type="text" name="app" class="" value="{{old('app',$renter->app)}}" placeholder="AP PATERNO">
+                                            <input type="text" name="app" class=""
+                                                value="{{ old('app', $renter->app) }}" placeholder="AP PATERNO">
                                             <br />
-                                            <input type="text" name="apm" class="" value="{{old('apm',$renter->apm)}}" placeholder="AP MATERNO">
+                                            <input type="text" name="apm" class=""
+                                                value="{{ old('apm', $renter->apm) }}" placeholder="AP MATERNO">
                                             <br />
-                                            <input type="email" name="mail" class="" value="{{old('mail',$renter->email)}}" placeholder="EMAIL">
+                                            <input type="tel" name="phone" class=""
+                                                value="{{ old('phone', $renter->phone) }}" placeholder="TELÉFONO">
+                                            <br />
+                                            <input type="email" name="mail" class=""
+                                                value="{{ old('mail', $renter->email) }}" placeholder="EMAIL">
                                             <br />
                                             <select name="id_apartment">
-                                                <option value="">Selecciona un número de departamento</option>
-                                                {{-- {{$apartments}} --}}
                                                 @foreach ($apartments as $apartment)
-                                                    <option
-                                                        value="{{ $apartment->id }}"{{ old('name') == $apartment->id ? 'selected' : '' }}>
-                                                        {{ $apartment->name }}</option>
+                                                    @if ($renter->id_apartment == $apartment->id)
+                                                        <option value="{{ $apartment->id }}" selected>
+                                                            {{ $apartment->name }}</option>
+                                                    @else
+                                                        <option value="{{ $apartment->id }}">
+                                                            {{ $apartment->name }}</option>
+                                                    @endif
                                                 @endforeach
                                             </select>
                                             <br />
-                                            <select name="id_status_renters">
-                                                <option value="">Selecciona un estado de inquilino</option>
-                                                {{-- {{$apartments}} --}}
+                                            <select name="id_status_renter">
                                                 @foreach ($status_renters as $status_renter)
-                                                    <option
-                                                        value="{{ $status_renter->id }}"{{ old('name') == $status_renter->id ? 'selected' : '' }}>
-                                                        {{ $status_renter->name }}</option>
+                                                    @if ($renter->id_status_renter == $status_renter->id)
+                                                        <option value="{{ $status_renter->id }}" selected>
+                                                            {{ $status_renter->name }}</option>
+                                                    @else
+                                                        <option value="{{ $status_renter->id }}">
+                                                            {{ $status_renter->name }}</option>
+                                                    @endif
                                                 @endforeach
                                             </select>
                                             <br />
                                             <label class="arrival_date_label" for="arrival_date">Fecha en que se ocupará el
                                                 departamento</label>
-                                            <input type="date" name="arrival_date" class="arrival_date_input" value="{{old('arrival_date',$renter->arrival_date)}}">
+                                            <input type="date" name="arrival_date" class="arrival_date_input"
+                                                value="{{ old('arrival_date', $renter->arrival_date) }}">
                                     </div>
                                 </section>
                                 <footer class="modal-footer">
-                                    <button type="button" class="btn_danger" onclick="closeModal_edit({{ $renter->id }})">Cancelar</button>
+                                    <button type="button" class="btn_danger"
+                                        onclick="closeModal_edit({{ $renter->id }})">Cancelar</button>
                                     <button type="submit" class="btn_primary">Guardar</button>
                                 </footer>
                                 </form>

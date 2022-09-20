@@ -1,5 +1,6 @@
 :root {
-    --white: #bababa;
+    --gray: #bababa;
+    --white:#FFFFFF;
     --black: #000000;
     --dark-blue: #0d1529;
     --dark-blue-secondary: #121f3a;
@@ -7,6 +8,7 @@
     --light-blue: #08497a;
     --dark-orange: #db9973;
     --light-orange: #ca6262;
+    --light-orange-clear: #f8d7da;
     --light-green: #44a29d;
     --dark-green: #1e424c;
     --bounceEasing: cubic-bezier(0.51, 0.92, 0.24, 1.15);
@@ -20,7 +22,7 @@
 html {
     font-size: 62.5%;
     font-family: 'Roboto', sans-serif;
-    color: var(--white);
+    color: var(--gray);
 }
 
 body {
@@ -137,11 +139,35 @@ a {
     border-radius: 20px;
     border: 2px var(--light-green) solid;
     margin-top: 20px;
-    color: var(--white);
+    color: var(--gray);
     display: flex;
     justify-content: center;
     align-items: center;
     visibility:hidden;
+}
+.modal-alerts{
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+}
+
+.modal-alert__wrapper{
+    background-color: var(--light-orange);
+    width: 600px;
+    height: auto;
+    border-radius: 20px;
+    border: 2px var(--light-orange) solid;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    color: var(--white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* visibility:hidden; */
+}
+
+.modal-alert__wrapper ul{
+    padding: 10px 0px 10px 0;
 }
 
 .modal, .modal_edit {
@@ -159,6 +185,8 @@ a {
     opacity: 10;
     backdrop-filter: blur(8px);
     transition: all 0.35s ease-in;
+    box-sizing: border-box;
+
 }
 
 .modal-dialog {
@@ -166,12 +194,13 @@ a {
     width: 60vw;
     height: auto;
     max-width: 800px;
-    max-height: 80vh;
+    max-height: 90vh;
     border-radius: 15px;
     padding: 1rem;
     background: var(--dark-blue-secondary);
     overflow: auto;
     cursor: default;
+    box-sizing: border-box;
 }
 
 .modal-header,
@@ -239,7 +268,7 @@ a {
 }
 
 .close-modal{
-    color: var(--white);
+    color: var(--gray);
     font-size: 2.2rem;
     font-weight: bold;
     background-color: transparent;
@@ -265,6 +294,10 @@ select{
     width: 81%;
 }
 
+.rentersLink{
+    text-decoration: none;
+    color: var(--gray);
+}
 
 /* form */
 /* table */
@@ -286,7 +319,7 @@ th,
 td {
     padding: 20px;
     background: var(--dark-blue-secondary);
-    border-bottom: 2px solid var(--white);
+    border-bottom: 2px solid var(--gray);
     font-weight: 300;
 }
 
@@ -296,7 +329,7 @@ th {
 
 /* table */
 .transparent {
-    background-color: var(--white);
+    background-color: var(--gray);
     opacity: 0.1;
 }
 
@@ -335,6 +368,7 @@ nav {
 .h1_text {
     margin-top: 20px;
     margin-right: 30px;
+    color:var(--primary-blue);
 }
 
 h1 {
@@ -348,3 +382,80 @@ h1 {
     border: 1px red solid;
     grid-area: footer;
 }
+
+/* estilos_show_renters */
+.container-data{
+    display: grid;
+    grid-template-columns: repeat(2,650px);
+    grid-template-rows: repeat(6, 100px);
+    grid-template-areas:
+        "inf inf"
+        "mail phone"
+        "apartment status"
+        "arrival departure"
+        "title_tb title_tb"
+        "tb_hist tb_hist"
+    ;
+}
+
+.container-data__txt{
+    grid-area:inf;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.container-data__mail{
+    display: flex;
+    align-items: center;
+    grid-area:mail;
+}
+.container-data__phone{
+    display: flex;
+    align-items: center;
+    grid-area:phone;
+}
+.container-data__apartment{
+    display: flex;
+    align-items: center;
+    grid-area:apartment;
+}
+.container-data__status_renter{
+    display: flex;
+    align-items: center;
+    grid-area:status;
+}
+.container-data__arrival_date{
+    display: flex;
+    align-items: center;
+    grid-area:arrival;
+}
+.container-data__departure_date{
+    display: flex;
+    align-items: center;
+    grid-area:departure;
+}
+
+.container-data__tb_title{
+    grid-area:title_tb;
+}
+
+.container-data__tb_title h2{
+    margin-top: 35px;
+}
+
+.container-data_tb_hist{
+    grid-area:tb_hist;
+}
+
+.bordeado{
+    border: 1px solid var(--gray);
+}
+
+.container-data span{
+    margin-right: 3px;
+    margin-left: 6px;
+    font-weight: 600;
+    color: var(--primary-blue);
+}
+/* estilos_show_renters */

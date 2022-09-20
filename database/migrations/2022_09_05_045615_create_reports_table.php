@@ -19,7 +19,6 @@ return new class extends Migration
             $table->unsignedBigInteger('id_status_report');
             $table->text('comments');
             $table->timestamps();
-
             $table->foreign('id_renter')->references('id')->on('renters');
             $table->foreign('id_status_report')->references('id')->on('cat_status_reports');
         });

@@ -17,12 +17,13 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('app');
-            $table->string('apm');
+            $table->string('apm')->nullable();
             $table->unsignedBigInteger('id_apartment');
             $table->date('arrival_date');
-            $table->date('departure_date');
+            $table->date('departure_date')->nullable();
             $table->unsignedBigInteger('id_status_renter');
-            $table->string('email');
+            $table->string('email')->nullable();
+            $table->string('phone')->nullable();
             $table->timestamps();
 
             $table->foreign('id_apartment')->references('id')->on('cat_apartments');

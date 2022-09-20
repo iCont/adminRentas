@@ -25,7 +25,8 @@ class RentersFactory extends Factory
             'id_apartment'=>$this->faker->numberBetween(1,10),
             'arrival_date'=>$this->faker->datetime(),
             'id_status_renter'=>$this->faker->numberBetween(1,3),
-            'email'=>$this->faker->email
+            'email'=>$this->faker->email,
+            'phone'=>$this->faker->phoneNumber
         ];
     }
 }

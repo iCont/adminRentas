@@ -17,6 +17,7 @@ class Renters extends Model
         'arrival_date',
         'departure_date',
         'id_status_renter',
+        'phone',
         'email'
     ];
 
